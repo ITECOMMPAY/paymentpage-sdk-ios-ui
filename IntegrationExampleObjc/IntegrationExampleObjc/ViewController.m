@@ -31,16 +31,18 @@
     
     #warning("Signature should be generated on your server and delivered to your app")
     NSString *signature = [self getSignature:paymentOptions.paramsForSignature];
-    
+
     // Sign payment info
     [paymentOptions setSignature:signature];
+
+    //enable test environment
+    paymentOptions.mockModeType = MockModeTypeSuccess; // built in mocks will be used instead of making real server requests to server
     
     [self.ecommpaySDK presentPaymentAt:self paymentOptions:paymentOptions completionHandler:^(PaymentResult *result) {
         NSLog(@"ecommpaySDK finished with status %ld", (long)result.status);
         switch (result.status) {
             case PaymentStatusSuccess:
             case PaymentStatusDecline:
-            case PaymentStatusFailed:
                 NSLog(@"payment id: %@", result.payment.id);
                 NSLog(@"payment date: %@", result.payment.date);
                 NSLog(@"payment sum: %lld", result.payment.sum);
@@ -133,6 +135,11 @@
 - (void)setBrandColor:(PaymentOptions *)paymentOptions {
     [paymentOptions setBrandColor: UIColor.greenColor];
 }
+
+- (void)setLogoImage:(PaymentOptions *)paymentOptions {
+    paymentOptions.logoImage = [UIImage imageNamed:@"ExampleLogo"];
+}
+
 
 #pragma mark - 3D Secure parameters
 

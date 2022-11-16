@@ -109,7 +109,7 @@ To open payment form, do the following:
     
 3.  Create an object named `PaymentOptions` with all the required parameters and any number of optional parameters, for example:
     
-        let paymentInfo = PaymentOptions(projectID: 10,
+        let paymentOptions = PaymentOptions(projectID: 10,
                                     paymentID: "internal_payment_id_1",
                                     paymentAmount: 1999,
                                     paymentCurrency: "USD",
@@ -138,17 +138,17 @@ To open payment form, do the following:
 
 4.  Pack all the payment parameters into a string for signing:
     
-    paymentInfo.getParamsForSignature();
+    paymentOptions.getParamsForSignature();
     
 5.  Send the string to your back end.
 6.  Have your back end generate the signature on the basis of the string and your secret key.
 7.  Add signature in your `PaymentOptions` object:
     
-    paymentInfo.setSignature(value: signature)
+    paymentOptions.setSignature(value: signature)
     
 8.  Open the payment form by using the following code:
     
-        sdkFacade.presentPayment(at: self, paymentInfo: paymentInfo) { (result) in
+        sdkFacade.presentPayment(at: self, paymentOptions: paymentOptions) { (result) in
            print("ECommPay SDK finished with status \\(result.status.rawValue)")
            ...
          }
@@ -170,7 +170,7 @@ To open payment form, do the following:
     
 3.  Create an object named `PaymentOptions` with all the required parameters and any number of optional parameters, for example:
     
-        PaymentOptions *paymentInfo = [[PaymentOptions alloc] initWithProjectID:10
+        PaymentOptions *paymentOptions = [[PaymentOptions alloc] initWithProjectID:10
                                     paymentID:@"internal_payment_id_1"
                                 paymentAmount:1999
                               paymentCurrency:@"USD"
@@ -199,17 +199,17 @@ To open payment form, do the following:
    
 4.  Pack all the payment parameters into a string for signing:
     
-    paymentInfo.getParamsForSignature();
+    paymentOptions.getParamsForSignature();
     
 5.  Send the string to your back end.
 6.  Have your back end generate the signature on the basis of the string and your secret key.
 7.  Add signature in your `PaymentOptions` object:
     
-    [paymentInfo setSignature:signature];
+    [paymentOptions setSignature:signature];
     
 8.  Open the payment form by using the following code:
     
-        [sdkFacade presentPaymentAt:self paymentInfo:paymentInfo 
+        [sdkFacade presentPaymentAt:self paymentOptions:paymentOptions 
              completionHandler:^(PaymentResult *result) {
              NSLog(@"ECommPay SDK finished with status %ld", (long)result.status);
              ...
@@ -225,7 +225,7 @@ To receive and process response with the payment processing results you need to 
 
 Figure: Receiving response in Swift
 
-    sdkFacade.presentPayment(at: self, paymentInfo: paymentInfo) { (result) in
+    sdkFacade.presentPayment(at: self, paymentOptions: paymentOptions) { (result) in
        print("ECommPay SDK finished with status \(result.status.rawValue)")
        if let error = result.error { //// if error encountered
           print("ErrorCode: \(error.code) message: \(error.message)")
@@ -234,7 +234,7 @@ Figure: Receiving response in Swift
 
 Figure: Receiving response in Objective-C
 
-    [self.sdkFacade presentPaymentAt:self paymentInfo:paymentInfo
+    [self.sdkFacade presentPaymentAt:self paymentOptions:paymentOptions
         completionHandler:^(PaymentResult *result) {
             NSLog(@"ECommPay SDK finished with status %ld", (long)result.status);
             if(result.error != NULL) { // if error encountered
@@ -242,7 +242,7 @@ Figure: Receiving response in Objective-C
             }
      }];
 
-The result code is returned in the paymentStatus parameter.
+The result code is returned in the PaymentResult.status parameter.
 
 The following enumeration lists possible response codes returned in the PaymentResult.status parameter.
 

@@ -1,0 +1,16 @@
+PODS:
+  - EcommpaySDK_UI (2.0.0)
+
+DEPENDENCIES:
+  - EcommpaySDK_UI (= 2.0.0)
+
+SPEC REPOS:
+  trunk:
+    - EcommpaySDK_UI
+
+SPEC CHECKSUMS:
+  EcommpaySDK_UI: 36b9dc54aba515df6dbdf342b8351b699c9e83ec
+
+PODFILE CHECKSUM: 38935b5ea6cfc9f79663585a595554e3b58494a8
+
+COCOAPODS: 1.11.3
