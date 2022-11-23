@@ -1,3 +1,5 @@
+[![CocoaPods](https://img.shields.io/cocoapods/v/EcommpaySDK_UI.svg?style=flat)](https://github.com/ITECOMMPAY/paymentpage-sdk-ios-ui)
+[![Badge w/ Platform](https://cocoapod-badges.herokuapp.com/p/EcommpaySDK_UI/badge.svg)](https://github.com/ITECOMMPAY/paymentpage-sdk-ios-ui)
 Ecommpay SDK UI for iOS
 ===========
 
