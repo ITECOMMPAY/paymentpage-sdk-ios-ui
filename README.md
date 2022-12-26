@@ -133,6 +133,7 @@ To open payment form, do the following:
     *   paymentDescription—payment description (this parameter is available not only to the merchant, but also to the customer; if paymentDescription is specified in the request, it is visible to the customer in the payment form (in the dialog box containing information about the payment); if this parameter is not specified in the request, it is not visible to the customer)
     *   customerID—customer ID
     *   regionCode—customer country
+    *   action — action type (Sale (by default), Auth, Tokenize, or Verify;
     *   token—card token
     *   forcePaymentMethod—the identifier of the payment method which is opened to the customer without an option for the customer to select another payment method. The list of codes is provided in the [IDs of payment methods supported on Payment Page](en_PP__Paramaters_ForcePaymentMethod.html) section
     *   hideSavedWallets—hiding or displaying saved payment instruments in the payment form. Possible values:
@@ -194,6 +195,7 @@ To open payment form, do the following:
     *   paymentDescription—payment description (this parameter is available not only to the merchant, but also to the customer; if paymentDescription is specified in the request, it is visible to the customer in the payment form (in the dialog box containing information about the payment); if this parameter is not specified in the request, it is not visible to the customer)
     *   customerID—customer ID
     *   regionCode—customer country
+    *   action — action type (Sale (by default), Auth, Tokenize, or Verify;
     *   token—card token
     *   forcePaymentMethod—the identifier of the payment method which is opened to the customer without an option for the customer to select another payment method. The list of codes is provided in the [IDs of payment methods supported on Payment Page](en_PP__Paramaters_ForcePaymentMethod.html) section
     *   hideSavedWallets—hiding or displaying saved payment instruments in the payment form. Possible values:
